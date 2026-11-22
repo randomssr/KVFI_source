@@ -66,7 +66,6 @@ def parse_json(call_result_json):
                 if func in callsite_funcs:
                     callcount = callsite_funcs[func]["count"]
                 if func in export_temp_functions:
-                    # 同名函数，取callcount多的
                     if export_temp_functions[func]["call_count"] >= callcount:
                         continue
                 export_temp_functions[func] = {"paramlen":defined_funcs[func], "binary_path": binary_path, "call_count": callcount}

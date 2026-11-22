@@ -169,7 +169,6 @@ async def get_llm_result(all_funcs, ida_path, binary_path, script_path, output_p
     global match_nvram
     global check_time
     print(f"processing {binary_path}")
-    # vendor的总结果
     vendor_path = Path(settings.vendor_func_result)
     if not vendor_path.exists():
         data = {}
@@ -213,7 +212,6 @@ async def get_llm_result(all_funcs, ida_path, binary_path, script_path, output_p
                     if _path not in ["totalfunc"]:
                         defines = set(totalfuncs[_path]["funcnames"])
                         _sect = defines & ex_funcs
-                        # 去掉libc里面的库函数
                         if "libc-" in _path.lower() or "libc.so" in _path.lower() or "pthread" in _path.lower() or "stdc" in _path.lower() or "gcc" in _path.lower():
                             for _f in _sect:
                                 ex_funcs.discard(_f)
@@ -305,7 +303,7 @@ async def parse_function(final_possible_json, devicename):
     # match_llm = {}
     with open(final_possible_json, "r") as f:
         content = json.load(f)
-    # 一个binary_path一个task
+    # binary_path->task
     tasks = []
     for binary_path in content:
 

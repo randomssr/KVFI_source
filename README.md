@@ -1,19 +1,18 @@
-# KVFI 发布材料
+# KVFI
 
+```text
+source/                     Tool source code and configuration templates
+source/ground_truth.json    Key-value source annotations for 69 devices
+firmware/                   Firmware files organized by vendor and device
 ```
-source/                      KVFI 工具源码及配置模板
-source/ground_truth.json     69 个设备的 key-value source 标注
-firmware/                    69 个设备的原始固件镜像目录（按厂商/型号）
 
-```
+## Usage
 
-## 使用说明
+### 1. Set up the environment
 
-### 1. 安装环境
+Install Python 3.10 or later and IDA Pro with IDAPython and decompiler support for the target architectures. Firmware extraction may require tools such as Binwalk and SquashFS utilities.
 
-需要 Python 3.10 或更高版本，以及带有对应架构反编译器和 IDAPython 的 IDA Pro。固件解包可使用 Binwalk、SquashFS 等工具。
-
-在发布材料目录中执行：
+From the release directory, run:
 
 ```bash
 cd source
@@ -23,9 +22,9 @@ python -m pip install -r requirements.txt
 python -m pip install esprima
 ```
 
-### 2. 配置路径和模型
+### 2. Configure paths and the model
 
-修改 `source/settings.toml`，将以下路径替换为本机的实际绝对路径：
+Edit `source/settings.toml` and replace the following paths with absolute paths on your machine:
 
 ```toml
 ida_path = "/absolute/path/to/ida/idat"
@@ -33,7 +32,7 @@ script_path = "/absolute/path/to/KVFI-release-materials/source"
 result_path = "/absolute/path/to/KVFI-release-materials/source/res"
 ```
 
-在 `source/` 目录创建 `.env`，为语义分析配置支持 Anthropic Messages API 的模型服务：
+Create a `.env` file in `source/` to configure a model service that supports the Anthropic Messages API:
 
 ```dotenv
 ANTHROPIC_API_KEY=your_api_key
@@ -41,13 +40,13 @@ ANTHROPIC_BASE_URL=https://your-provider.example
 ANTHROPIC_MODEL=your_model_name
 ```
 
-使用默认 Anthropic 服务时，可省略 `ANTHROPIC_BASE_URL`。模型服务必须支持该 API 协议；只有 OpenAI-compatible 接口的服务不能直接使用这条入口。
+Omit `ANTHROPIC_BASE_URL` when using the default Anthropic service. This entry point requires the Anthropic Messages API; a service that only supports the OpenAI-compatible API cannot be used directly.
 
-### 3. 解包并分析固件
+### 3. Extract and analyze firmware
 
-先将 `firmware/厂商/型号/` 下的固件解包，得到完整文件系统目录，例如 `/absolute/path/to/squashfs-root`。分析程序接收解包目录或 ELF 二进制，不直接接收刷机镜像。
+Extract the firmware from `firmware/<vendor>/<device>/` into a complete filesystem directory, such as `/absolute/path/to/squashfs-root`. The analyzer accepts an extracted filesystem directory or an ELF binary, rather than a firmware update image.
 
-从 `source/` 目录运行完整分析，`--device` 用于指定本次结果目录名称：
+Run the complete analysis from `source/`. The `--device` argument specifies the name of the output directory for this run:
 
 ```bash
 python run_unified.py \
@@ -56,13 +55,13 @@ python run_unified.py \
   --with-agent
 ```
 
-这条命令执行结构分析、候选构建和模型语义分析。模型调用会产生 API 费用。运行结束后，主要输出位于配置的 `result_path/example_device/`：
+This command runs structural analysis, candidate construction, and model-based semantic analysis. Model calls incur API charges. The main outputs are written to `result_path/example_device/`:
 
-- `deepin_result_path.json`：合并后的 source 结果。
-- `agent_possible.json`：语义分析识别的 key-value sources。
-- `recv_param_result.json`：结构分析结果。
+- `deepin_result_path.json`: merged source-identification results.
+- `agent_possible.json`: key-value sources identified through semantic analysis.
+- `recv_param_result.json`: structural analysis results.
 
-仅运行结构分析时，省略 `--with-agent`：
+To run structural analysis only, omit `--with-agent`:
 
 ```bash
 python run_unified.py \
@@ -70,7 +69,7 @@ python run_unified.py \
   --device example_structural
 ```
 
-也可以对已知候选函数单独进行语义分析：
+To perform semantic analysis on a known candidate function:
 
 ```bash
 python agent_analyze.py \
@@ -79,8 +78,4 @@ python agent_analyze.py \
   --out ./example_sources.json
 ```
 
-其中函数名应与对应二进制在 IDA 中的名称一致；该命令只检查指定候选。
-
-
-
-
+Use the function name shown by IDA for the corresponding binary. This command checks only the specified candidate.

@@ -240,7 +240,6 @@ def get_disasm(need_asm, Import_funcs,arm):
             print(f"Failed to get function at address {hex(func_ea)}.")
             continue 
         if idaapi.get_func_name(func_ea) in Import_funcs:
-            # import 的函数
             external_funcs.add(idaapi.get_func_name(func_ea))
             continue
         # ida_auto.auto_wait()

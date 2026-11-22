@@ -85,7 +85,7 @@ def is_code_segment(address):
             seg_start = seg.start_ea
             seg_end = seg.end_ea
             seg_type = idaapi.get_segm_class(seg)
-        # .text段
+        # .text segment
             if seg_name== ".text" or seg_type == "CODE":
                if address >= seg_start and address <= seg_end:
                     return True
@@ -171,7 +171,7 @@ def arm_resolve_operand(operand, insn, _byteod):
         if insn:
             if len(insn.Operands) > 1:
                 offset = insn.Operands[1].value
-                addr = insn.ea + 8 + offset  # ARM中PC指向当前指令+8
+                addr = insn.ea + 8 + offset  # ARM PC=current ins+8
                 if idaapi.is_strlit(idc.get_full_flags(addr)):
                     string = idc.get_strlit_contents(addr, -1, idaapi.STRTYPE_C)
                     if string:
@@ -937,7 +937,6 @@ def mips_analyze_call_site(func_addr, resultjson):
             if operand.startswith('$'):
                 reg = operand[1:]
                 for _j in range(index+1, 0, -1):
-                    # 具有分支延迟效应
                     if _j == index or _j == len(instructions):
                         continue
                     # print(f"sss {_j} {index} {len(instructions)}")
