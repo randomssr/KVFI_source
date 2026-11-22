@@ -1,0 +1,6 @@
+ida_path="/path/to/ida/idat"
+script_path="/absolute/path/to/KVFI-release-materials/tool"
+result_path="./res"
+vendor_func_result="./res/vendor_func.json"
+vendor_uri_func_result="./res/vendor_uri_func.json"
+vendor_deepin_result="./res/vendor_deepin.json"

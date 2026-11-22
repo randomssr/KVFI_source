@@ -1,0 +1,1459 @@
+{
+  "device_count": 69,
+  "source_count_by_device_and_function": 94,
+  "source_count_by_device_binary_and_function": 98,
+  "devices": [
+    {
+      "device": "Asus/AC68u",
+      "firmware_images": [
+        {
+          "file": "firmware/Asus/AC68u/RT-AC68U_3.0.0.4_384_32738-gc9a116a.trx",
+          "sha256": "1b8aaacebee4c37ac08e7adf5555a1e7d90c781e73e4a5b38367b9026aa81be8",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "a449055770b196183623723b185dc9b7e72be560e1d0d7a01ca61fb230145ecd",
+          "functions": [
+            "sub_1A8A8",
+            "sub_1A8EC",
+            "sub_1A97C"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Belkin/E1700",
+      "firmware_images": [
+        {
+          "file": "firmware/Belkin/E1700/FW_E1700_v1.0.03.003_20160512.bin",
+          "sha256": "6c3bf98b897d745b2bc6d2ecd3bbade1e0854fec21ad52a942ef56e3d739c4aa",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "mod_form.so",
+          "sha256": "74a6596d3c5b123a26c944179d9a6f01621e5d69210765806bf4e87381d38894",
+          "functions": [
+            "sub_3970"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Belkin/RE6500",
+      "firmware_images": [
+        {
+          "file": "firmware/Belkin/RE6500/FW_RE6500_v1.0.05.003_20160305.bin",
+          "sha256": "3020ade8c4ac6bd92044a804c783b713b0498fceed8ad3c40940819d40262066",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "mod_form.so",
+          "sha256": "fa33d3cbf858c1ed5bfb99c1f92bf5782a980908b74b54a92a789482111761fa",
+          "functions": [
+            "sub_2F0B0"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "D-Link/DAP1860",
+      "firmware_images": [
+        {
+          "file": "firmware/D-Link/DAP1860/DAP1860A1_FW104B05-Beta.bin",
+          "sha256": "751629ce9eb265fa72196990056cc04e9e8cb42500fbc0718cd56c6a982ccab9",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "goahead",
+          "sha256": "114d66af1a72aad48202bc61d251a59607252feeab39c80715402cdebc0613a5",
+          "functions": [
+            "websGetVar",
+            "GetNameValue"
+          ]
+        },
+        {
+          "binary": "uhttpd",
+          "sha256": "aa728d4cbf897d8aab1068162af846ed85c023dd532607f42a3c3e1dcdc32dcf",
+          "functions": [
+            "cgi_value",
+            "GetNameValue"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "D-Link/DI7200G",
+      "firmware_images": [
+        {
+          "file": "firmware/D-Link/DI7200G/DI_7200GV2-24.04.18E1.trx",
+          "sha256": "6e33395a1217216d277aad83d4d05f9bb53fc1344a612af5142daba04dd65302",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "jhttpd",
+          "sha256": "8293ffb96b8266c078faf8ca0aba1a67a07d1548e36115197b93bb5efea12c0f",
+          "functions": [
+            "httpd_get_parm"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "D-Link/DIR619",
+      "firmware_images": [
+        {
+          "file": "firmware/D-Link/DIR619/DIR-619L-ES_v2.04B01.bin",
+          "sha256": "91c5b2fbb80c6242424b441672a7de38c5390657d43289d830f149df73332fdc",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "boa",
+          "sha256": "18978640f44e747f0bdce2580baea917a604ca91f6780179d2c608f5f54e6d89",
+          "functions": [
+            "websGetVar",
+            "sub_48DD20"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "D-Link/DIR825",
+      "firmware_images": [
+        {
+          "file": "firmware/D-Link/DIR825/DIR825B1_FW210NAb02.bin",
+          "sha256": "638591ad0ac5c187dd220196af4015ebfadb9cc016eaef79119f4f18b144e8f0",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd_back",
+          "sha256": "d63225b5d93d8a5f7d6220e13f204c0af9f92c9c0b0b585f301e301ef6a3b920",
+          "functions": [
+            "get_cgi",
+            "sub_4334F8"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "D-Link/Dir816",
+      "firmware_images": [
+        {
+          "file": "firmware/D-Link/Dir816/DIR-816A2_FWv1.10CNB05_R1B011D88210.img",
+          "sha256": "52cdd473eb361f225c74c9f4e8da91acdcb11787b6b4fb238f70520adf0fe575",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "goahead",
+          "sha256": "4b103bf880e78bdeea18ddecc515a135d5a6d3c7d66605356b0464bed8817abe",
+          "functions": [
+            "websGetVar"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "D-Link/Dir878",
+      "firmware_images": [
+        {
+          "file": "firmware/D-Link/Dir878/DIR_878_FW120B05_decode.BIN",
+          "sha256": "c9fa1865dea9a14d7f8335afc0cdedbc37ef0e476a72a42d08d18aa3f828e35f",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "goahead",
+          "sha256": "33b7660e90ecf67c4d4d1bf26f35d5bc5fedcc2857c64c3853d858a77a1a18b9",
+          "functions": [
+            "websGetVar"
+          ]
+        },
+        {
+          "binary": "prog.cgi",
+          "sha256": "e2bfcdec07a6ef5c5367180e2d8fe85dc6b6fbf28757b279272e9e7a5a48f880",
+          "functions": [
+            "webGetVarString"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "D-Link/dap1325",
+      "firmware_images": [
+        {
+          "file": "firmware/D-Link/dap1325/DAP-1325_A1_FW101b02.bin",
+          "sha256": "f73241deb6e0ea064b17a489b2870c33d96f3acaaa5005275f9fbe379021da1f",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "goahead",
+          "sha256": "ca71d904f44231b784eee455d449dfbd40a73974b8ab6f8bf3735ecfc0c54f4e",
+          "functions": [
+            "mxmlFindElement",
+            "websGetVar"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "D-Link/dhp1320",
+      "firmware_images": [
+        {
+          "file": "firmware/D-Link/dhp1320/dhp1320_firmware_101.bin",
+          "sha256": "0b9afb32822844290b92a00d7fb3d1773b2058edb920b7856b4ad510abf4bd85",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "7b472c06eeaf346ab28ff81bfb68e543c8e75068255b693b927a83178f2ceb2d",
+          "functions": [
+            "get_cgi",
+            "sub_433758"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "D-Link/di8100",
+      "firmware_images": [
+        {
+          "file": "firmware/D-Link/di8100/DI_8100G-17.12.20A1.trx",
+          "sha256": "cfb23c7ded92689e465b7a283305c48cf3eb40c650cd1ccd13f42473f75cb91e",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "jhttpd",
+          "sha256": "f90165e470f8e52d46378d95fd1ab5b945fd7041618a49f36e7e6241a1fe3269",
+          "functions": [
+            "httpd_get_parm"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "D-Link/dir605L",
+      "firmware_images": [
+        {
+          "file": "firmware/D-Link/dir605L/DIR605LB2_FW213WWB01.bin",
+          "sha256": "5f02e184b279db2ed44730a2c2d1e8085e167f949a0db5164c371b6d1abcaa22",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "boa",
+          "sha256": "51adee750697640aac825dd5c3ba27542ae7cbb625d7f9cf789c9a5d9b25c41b",
+          "functions": [
+            "websGetVar",
+            "sub_48D590"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "D-Link/dir632",
+      "firmware_images": [
+        {
+          "file": "firmware/D-Link/dir632/DIR632_FW_103.bin",
+          "sha256": "a1a4a97059772b525dd1595b0302b81d6eb6c5d7bb589a7d816cad0f68beec4f",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "f8ffeb0785773429dd9a87ed249824c8b318ef5aa970876fcb70bc6b3975cdb4",
+          "functions": [
+            "get_cgi",
+            "sub_41979C"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "D-Link/dir823",
+      "firmware_images": [
+        {
+          "file": "firmware/D-Link/dir823/DIR823G_V1.0.2B05_20181207.bin",
+          "sha256": "3928936f860e40e792abc1ae9e4ee811f15b153396dbfdf5c482ca2e8b3a55c4",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "goahead_back",
+          "sha256": "3062c5fe9420f854720dec80975aaf46d62b7725cd463cc30dd83c656cae5978",
+          "functions": [
+            "mxmlFindElement",
+            "sub_41EBF8"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "H3C/B1ST",
+      "firmware_images": [
+        {
+          "file": "firmware/H3C/B1ST/B1STV100R012.bin",
+          "sha256": "9b9c5f945d083c3ed993b59ede3c1da25bafc12a4c840573f9568564f684b479",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "boa",
+          "sha256": "7e81a762bc6d50ea32e3f8589f69d907793c8181269895cf9d3f5efb518df492",
+          "functions": [
+            "req_get_cstream_var",
+            "sub_41C4D0"
+          ]
+        },
+        {
+          "binary": "webs_back",
+          "sha256": "b778b962abdd3bb97a2bcf9b29ecde1a6c435675244100192ae10ccda70e64f4",
+          "functions": [
+            "sub_48657C",
+            "sub_41C4D0"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "H3C/B5mini",
+      "firmware_images": [
+        {
+          "file": "firmware/H3C/B5mini/B5MiniV100R005.img",
+          "sha256": "231e55f77e5bc1846ef12f8d5a17fbf60c0fafde3e9e93eaec85f8b8f8f5fae5",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "webs_back",
+          "sha256": "f1566c1d6b2f3a09ad02cdb2a97382592c16348b2fd4b947dde4f8ec96dd1948",
+          "functions": [
+            "sub_488400"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "H3C/GR1200",
+      "firmware_images": [
+        {
+          "file": "firmware/H3C/GR1200/MiniGRW1A0V100R006.bin",
+          "sha256": "293b3d2bbed6531d34390d4a9083b72552b3c032e3c5ebca50e7729180aec4ad",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "webs_back",
+          "sha256": "8341c1b4e1bb80ac9de5d9e54c2a28dcadad77534a552e359dca7c71d1c9f2bd",
+          "functions": [
+            "sub_41D564",
+            "sub_4E58C8"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "H3C/H200",
+      "firmware_images": [
+        {
+          "file": "firmware/H3C/H200/H200V100R004.img",
+          "sha256": "f1ce951b40d4cc6f800618dfd7d75abb9f47a11ae33255c9d9fa211bfb52bb80",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "webs_back",
+          "sha256": "48e7cfb3f609119abd7087df50948a68867ed092d06cb5fbe67e6fa13b6a1adf",
+          "functions": [
+            "sub_48C7DC",
+            "sub_40BD30"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "H3C/NX18",
+      "firmware_images": [
+        {
+          "file": "firmware/H3C/NX18/NX18PV100R003.bin",
+          "sha256": "da089ec284ae2794927dc6ad89e425f177ef35d82ca6ee2324f5e0a0c6559dd3",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "webs_back",
+          "sha256": "b9846daab7089e5b76ff81fafb3f7e158d71985d4356e4bed26b32aabc8ba9c6",
+          "functions": [
+            "sub_455930"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Linksys/E1000",
+      "firmware_images": [
+        {
+          "file": "firmware/Linksys/E1000/FW_E1000.bin",
+          "sha256": "4e07fea45a8955bca0d44e8dbe4872ad48eaa73684436ad721d1dff0bcb5121b",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "331ab298fda3c983a759704e4fb4669620d38550c0227bb035b6bb765087e83a",
+          "functions": [
+            "get_cgi"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Linksys/E1200",
+      "firmware_images": [
+        {
+          "file": "firmware/Linksys/E1200/FW_E1200.bin",
+          "sha256": "cb7dae6be12cf33d2ab928d9873becfa04791f85d8ceb7d276523655c93cab5a",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "2884aad871d36450b5f6c91591eb4dcb1be39043f0172696cd6337c0186636e5",
+          "functions": [
+            "get_cgi"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Linksys/E1500",
+      "firmware_images": [
+        {
+          "file": "firmware/Linksys/E1500/FW_E1500.bin",
+          "sha256": "5706fa16c5da4c7b9e1daf8668a4334fd3f3190f9b7a500605985b15c79b4e8b",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "4afd6b56177815e07786cdd051739694ea65e74559b652cd2bb93dbedbbec0a3",
+          "functions": [
+            "get_cgi"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Linksys/E2500",
+      "firmware_images": [
+        {
+          "file": "firmware/Linksys/E2500/FW_E2500_3.0.05.bin",
+          "sha256": "01785697c51209c9df008ee434a15265a2a8b90f791e2443cac2db5506d48e03",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "39227120d341932b5d79b7a919593f305ea5ce8f311e97b695a12cada0953fe4",
+          "functions": [
+            "get_cgi"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Linksys/E900",
+      "firmware_images": [
+        {
+          "file": "firmware/Linksys/E900/FW_E900_1.0.09.bin",
+          "sha256": "852031776c09f8152c90496f2c3fac85b46a938d20612d7fc03eea8aab46f23e",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "a34a81a62de37e0d69ef48022a84159744ba5ca02e604edc34bebb08385c9310",
+          "functions": [
+            "get_cgi"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Linksys/M10",
+      "firmware_images": [
+        {
+          "file": "firmware/Linksys/M10/FW_M10.bin",
+          "sha256": "8f96316d29277b972fa9c3fb8a363a0e74995d258fc8546bf1c84f9cc8c27878",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "f787f173383de375d120f97dbc82d4ad2e767d6da7f89634392f039405e8c5b8",
+          "functions": [
+            "get_cgi"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Linksys/M20",
+      "firmware_images": [
+        {
+          "file": "firmware/Linksys/M20/FW_M20.bin",
+          "sha256": "c9263a6d379ab3633119b6a4f4d2b580ce3877a70a6982d3feedda8a85b5c9a8",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "24377369afa08d9fffa0e0457447eeeb12e9de35a316be34631c09ab5aa5a969",
+          "functions": [
+            "get_cgi"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Linksys/PLW400",
+      "firmware_images": [
+        {
+          "file": "firmware/Linksys/PLW400/FW_PLW400.bin",
+          "sha256": "3397019599229f9608a9c5601d6a2b1333d053ee68e3042f613fff6d8682c68e",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "a147a9868ea02a73ad762cf0a1d4f26d04a657f8253d8eacd01808855eb43d23",
+          "functions": [
+            "get_cgi"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Linksys/RE1000",
+      "firmware_images": [
+        {
+          "file": "firmware/Linksys/RE1000/FW_RE1000.bin",
+          "sha256": "cf22130089bb6ceb486aaac0d5cf4839bf3802b655abb877d32b1a9acc994387",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "6983ee65c61ef25805f43b5615db4da491cefcf5e274ea51b84898f4d0d9df9e",
+          "functions": [
+            "get_cgi"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Linksys/WRT54GL",
+      "firmware_images": [
+        {
+          "file": "firmware/Linksys/WRT54GL/FW_WRT54GL_4.30.18_US.bin",
+          "sha256": "a7fddeac4a5a9f651f3dfaaaad2db1092def9485bdeea9bf5f3ddac334224d13",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "40b947527cb75af28e4a55575f9b0fe3c658f608de85c2fdd199bd48a81fe178",
+          "functions": [
+            "get_cgi"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Netgear/D6100",
+      "firmware_images": [
+        {
+          "file": "firmware/Netgear/D6100/D6100-V1.0.0.63_0.0.63.img",
+          "sha256": "08ba9f96dc9f35437227999b708da68caaac1026104b250ea3bc246200e9cebc",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "uhttpd",
+          "sha256": "716cd261f31eeac3c5db0119c457062f83ef0d7730c1c344f34a80f828649d4c",
+          "functions": [
+            "sub_40AC24"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Netgear/JNR3300",
+      "firmware_images": [
+        {
+          "file": "firmware/Netgear/JNR3300/JNR3300-V1.0.0.34PR.img",
+          "sha256": "b0a284571f343fcc3563fad728a167c5fdcdd090cd818d8e9dc960750175ce6a",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "uhttpd",
+          "sha256": "4e5a85669ad7b3ff8473dc77d5e7807661a469f2c1013ad7f0aca3758d709117",
+          "functions": [
+            "cgi_value"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Netgear/R6200",
+      "firmware_images": [
+        {
+          "file": "firmware/Netgear/R6200/R6200-V1.0.1.58_1.0.44.chk",
+          "sha256": "89b1e413c97cf123a1149c0b4cc82fae6ae142062df6d34529fa55e6f5409c54",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "a36e9f8f8e512033536567ac67d38b29563fbacc69cec7536a2fdae417691c2c",
+          "functions": [
+            "sub_15C34"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Netgear/WNCE4004",
+      "firmware_images": [
+        {
+          "file": "firmware/Netgear/WNCE4004/WNCE4004-V1.0.0.34.img",
+          "sha256": "8c869dfd27e21beef7aa8fed6dad2256271ee42a5f50ff1d11d2ce2d65a0249b",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "uhttpd",
+          "sha256": "c011f297932bc55c674e5ce2b7ab469aae8007096dfd1b967ca0e5628e3ba9b4",
+          "functions": [
+            "cgi_value"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Netgear/WNR2000V5",
+      "firmware_images": [
+        {
+          "file": "firmware/Netgear/WNR2000V5/WNR2000v5-V1.0.0.80.img",
+          "sha256": "113a14ccf1119acb6d989a659bb72cb81a507a27ec5a329c8abc8921c696eed8",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "uhttpd",
+          "sha256": "14f945f512f1a2c92ab82c5ebec709424724779b276ef8e41b9aa5e04572ce47",
+          "functions": [
+            "cgi_value",
+            "GetNameValueOld"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Netgear/WNR2500",
+      "firmware_images": [
+        {
+          "file": "firmware/Netgear/WNR2500/WNR2500-V1.0.0.34NA.img",
+          "sha256": "b7af2a5d1e4987c57241f169de0edbc0db96479cd0c8bd1e756d96b6d98529e7",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "uhttpd",
+          "sha256": "0cf0a0f2f4b89b1824dff5b700030ef716d08a25b70de6f9925b5b05e39f6189",
+          "functions": [
+            "cgi_value"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Netgear/XWN5001",
+      "firmware_images": [
+        {
+          "file": "firmware/Netgear/XWN5001/XWN5001-V0.4.1.1.img",
+          "sha256": "d0c693db43e27529c83f93aacc204a0cbc30909fec5568024b80800a3321e831",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "uhttpd",
+          "sha256": "7cac48fd16fe8bd726745ed41bfcc9c47a37431aad3b1714e5009faf4acc14b2",
+          "functions": [
+            "cgi_value"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Netgear/wndrmac",
+      "firmware_images": [
+        {
+          "file": "firmware/Netgear/wndrmac/WNDRMACv2-V1.0.0.10.img",
+          "sha256": "d5b191d304a178859b8b96f5fd42869d80e8a2023c029e21943650ae4c7934f0",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        },
+        {
+          "file": "firmware/Netgear/wndrmac/WNDRMACv2-V1.0.0.20.img",
+          "sha256": "1f8fac0af4119037ffbc57f326618de705687ba2e717f793400dd83cf05b9f10",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "libcupscgi_V1.0.0.20.so.1",
+          "sha256": "d3553f1f5d996eae83978aa53c36283670fc9d79dc9754a2cd082f82b0702009",
+          "functions": [
+            "cgiGetVariable"
+          ]
+        },
+        {
+          "binary": "uhttpd_V1.0.0.20",
+          "sha256": "cfee54bed2f0e951bc3ca547add0a6c75b7003f5e4e4e4be2ed71766410510fb",
+          "functions": [
+            "cgi_value"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Netgear/xavn2001v2",
+      "firmware_images": [
+        {
+          "file": "firmware/Netgear/xavn2001v2/XAVN2001-V0.4.0.7.img",
+          "sha256": "86faee9e3d6575fc3665006f76856e3df2b3fd50319e87d3c1dceaf8cc463efc",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "uhttpd",
+          "sha256": "73d51f57555d9c16f2cf7c79e730321ae1d3f065a3bff301ee9256de03ed878a",
+          "functions": [
+            "cgi_value"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "TP-Link/WR841V11",
+      "firmware_images": [
+        {
+          "file": "firmware/TP-Link/WR841V11/wr841nv11_wr841ndv11_en_3_16_9_up_boot(150616).bin",
+          "sha256": "e047c5aef648761faf52c7967e6f472c80accc5132ec3a982251a0ec128ab66a",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "43f26ab31212e7aa184ea3a756a3c0d6c50427e84d3eec022a8076abd707a0da",
+          "functions": [
+            "httpGetEnv",
+            "getEnvToInt"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "TRENDnet/tew_632brpa1",
+      "firmware_images": [
+        {
+          "file": "firmware/TRENDnet/tew_632brpa1/TEW632BRPA1_FW110B32.bin",
+          "sha256": "3ce2ec0097e8e97b4309c85b8cf5145c6a9dfcd71737f51f4a154520d9a1ce92",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "21c97ceb6fa23c670e44ed4ba9ce867adfae19a949427078d8034d490b9f6079",
+          "functions": [
+            "get_cgi",
+            "sub_4268E4"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "TRENDnet/tew_800",
+      "firmware_images": [
+        {
+          "file": "firmware/TRENDnet/tew_800/FW_TEW800MB(v1.0.1.0)_08012013.bin",
+          "sha256": "d134c15dea93417bb23f9dc01514f72fe54bc7f1f2b6a29a9694ee56d8896931",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "b7de6bafa99c4fe0fb789d55d43b4fd7d2e490d9e0d85d9ad6cf117fcc9b458a",
+          "functions": [
+            "sub_A26C"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "TRENDnet/tew_815",
+      "firmware_images": [
+        {
+          "file": "firmware/TRENDnet/tew_815/TEW-815DAP_v1.0.2.0.bin",
+          "sha256": "16435647c2143958f3c0c4f7595491f8ab8d8bf735c308e07a0ae3d742e8096e",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "39ce8dd2071a403c567664456eada02c93234ed91d02e088cef220a96dba1a21",
+          "functions": [
+            "sub_A2D0"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "TRENDnet/tew_820",
+      "firmware_images": [
+        {
+          "file": "firmware/TRENDnet/tew_820/TEW820AP_A1_FW101B01.bin",
+          "sha256": "e149b0328171134a22039bd53f9a4c42999b05b97324c8a1037c071d7d554de9",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "boa",
+          "sha256": "e57783ccb9696c28904b20bbe034f987fceab2e4bba5884127c139d7a24a7b22",
+          "functions": [
+            "req_get_cstream_var",
+            "sub_46A94C"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "TRENDnet/tew_828",
+      "firmware_images": [
+        {
+          "file": "firmware/TRENDnet/tew_828/TEW-828DRU_v1.0.9.0.bin",
+          "sha256": "a7d90de52c30dcb5b0eb5ab8082a050a0d8a49a06d88c568fcea05d8cc0d9300",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "9b4d505cd1fa623b24e47e96bfa1fedbd524e6eb455244f367597ea47e4099e8",
+          "functions": [
+            "sub_AE3C"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Tenda/AC10v4",
+      "firmware_images": [
+        {
+          "file": "firmware/Tenda/AC10v4/US_AC10V4.0si_V16.03.10.09_multi_TDE01.bin",
+          "sha256": "d192719aea4fc77a2b7644d2dd093dfdfd97aa32b513e699866aed1568ca4a86",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd_back",
+          "sha256": "f4c6ef718e4b8fe86199adc90832a95e56d1ee1f0183058f682d03cde8d3183c",
+          "functions": [
+            "websGetVar"
+          ]
+        },
+        {
+          "binary": "dhttpd",
+          "sha256": "f674369501465cc4b7acc38eb54aa38e7929e51d2ff96abf9369aadcf1974efd",
+          "functions": [
+            "websGetVar"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Tenda/AC15",
+      "firmware_images": [
+        {
+          "file": "firmware/Tenda/AC15/US_AC15V1.0BR_V15.03.05.19_multi_TD01.bin",
+          "sha256": "16be9bba2e6296fc031c6bea9337b3b075aeb6f7957e5c43e011707931e51b90",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "e9d1b92527c57f24d141fa10a7377237de66a9c4f9c1b83223adfa8f1f1db11d",
+          "functions": [
+            "sub_2BA8C",
+            "sub_9E384"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Tenda/AC18",
+      "firmware_images": [
+        {
+          "file": "firmware/Tenda/AC18/ac18_kf_V15.03.05.19(6318_)_cn.bin",
+          "sha256": "7f226515e19d9f8243068e880da74135da495df78821d6044a92f40af29811a5",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "addecb1e2d5e7befe200b75d925c52d84f3d60db5f18c1071136648e0f70d388",
+          "functions": [
+            "sub_2BA8C",
+            "sub_9E1DC"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Tenda/AC8v4",
+      "firmware_images": [
+        {
+          "file": "firmware/Tenda/AC8v4/US_AC8V4.0si_V16.03.33.05_multi_TDE01.bin",
+          "sha256": "c8182f9723dcd7fdea6dc194bda9c9dc020d2184bc0d370dcb38a02fe7c141b9",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd_back",
+          "sha256": "781cb2572bcd63723a3d0b70c6f1356f175ec5bbcda3e820eca286a1d3ea93fe",
+          "functions": [
+            "websGetVar"
+          ]
+        },
+        {
+          "binary": "dhttpd",
+          "sha256": "0d9d580d198797a0ccb9aa4645a49b87f4f13625d3f4c72fdb4e0b21b8690585",
+          "functions": [
+            "websGetVar"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Tenda/AC9",
+      "firmware_images": [
+        {
+          "file": "firmware/Tenda/AC9/US_AC9V3.0RTL_V15.03.06.42_multi_TD01.bin",
+          "sha256": "992e282268038fd4ee978dc2023251fbb65b44df61fc8cf59b9919c62f312bcf",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "329d918f05c1a76bf41074eba35553b2517f2054c1c10ab8c41ac2e037e12c6f",
+          "functions": [
+            "websGetVar",
+            "websGetVarWithValidate"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Tenda/AX1806",
+      "firmware_images": [
+        {
+          "file": "firmware/Tenda/AX1806/US_AX1806V2.1br_v1.0.0.1_cn_2988.bin",
+          "sha256": "cc0676edfdd80afc4b98caed65d02e0c464c8eaaa0d030fc941c32a5dbc70fe9",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "tdhttpd",
+          "sha256": "7abd21b140e717a9f2fd489516d17ae7012cdedd6f95c11ce7192672582c066d",
+          "functions": [
+            "sub_295C8"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Tenda/FH1201",
+      "firmware_images": [
+        {
+          "file": "firmware/Tenda/FH1201/US_FH1201V1.0BR_V1.2.0.8(8155)_EN_TD.bin",
+          "sha256": "5a8ccb8f9ad44b15280e0b73aad2a1e97957f30d50c3169b88c33ba1cf2c05ac",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "fd66936066279596f2c23c065c797691d30a4554b0d9c182798763bb23e4749a",
+          "functions": [
+            "websGetVar"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Tenda/G3V3",
+      "firmware_images": [
+        {
+          "file": "firmware/Tenda/G3V3/US_G3V3.0br_V15.11.0.16(9024)_CN_TDC.bin",
+          "sha256": "b2a7003576e9342a0b83867b1a6ec1d1bcb6e166e934d324b5a0508b4a80c15c",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "7f7e76a02fe77d2f6731577ea1de2d7c85600d9d212d241ae139c232b9a67dd7",
+          "functions": [
+            "websGetVar",
+            "cJSON_GetObjectItem"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Tenda/I12CE",
+      "firmware_images": [
+        {
+          "file": "firmware/Tenda/I12CE/US_i12V1.0BR_V1.0.0.11(3862)_TDE01.bin",
+          "sha256": "4b56f263ca44f67ca555c564be844005ab4c77ec56010ac4614f040f9a49c589",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "81622d3981a98ec540ab0cba51aed6b98af1657d9537a997d0d14f315160c1b2",
+          "functions": [
+            "websGetVar"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Tenda/I9",
+      "firmware_images": [
+        {
+          "file": "firmware/Tenda/I9/US_i9V2.0RE_V1.0.0.6(1020)_CN&EN_TDC01.bin",
+          "sha256": "99fc345cce775809a49b61c859f737132658dd4318c11bc8f46c18a042d8e1ed",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "e1f2f90702633108100f6170ce57997f8a23254b28f09d6d84c707d68048150a",
+          "functions": [
+            "websGetVar"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Tenda/M3",
+      "firmware_images": [
+        {
+          "file": "firmware/Tenda/M3/US_M3V1.0br_V1.0.0.13(4903)_CN&EN_TDC&TDE01.bin",
+          "sha256": "5dcf65d9d4ba60eeeff969a81d900a18e8b45cef1f534b08f00cd704eca52f25",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "800a4a5d044fcb199d3a791c5ab277327074ef13f8e5d334aa740fe6c20ca1f2",
+          "functions": [
+            "sub_27790"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Tenda/O3",
+      "firmware_images": [
+        {
+          "file": "firmware/Tenda/O3/US_O3V1.0BR_V1.0.0.3_EN.bin",
+          "sha256": "a840b1b507999d7bbd6ce512e7172d7c692f2c1e64000dfd83201d4e6bd148a4",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "f8cf129cedf3d4f02cfc8e9ecaa5825437420b39bc8a840c975fc2ffbcf037c0",
+          "functions": [
+            "websGetVar"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Tenda/PW201A",
+      "firmware_images": [
+        {
+          "file": "firmware/Tenda/PW201A/US_PW201AV2.0br_V2.0.0.2_TDE01.bin",
+          "sha256": "f419dd04ce49cf1c0b7095f593b332ff42f8347c4b2b599094eb0c454bc0c9fb",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "tenda_httpd",
+          "sha256": "a61699e1732a069655191d0f4067a05e32bfccc4f2b4692d6135d1e788627e38",
+          "functions": [
+            "websGetVar"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Tenda/RX9pro",
+      "firmware_images": [
+        {
+          "file": "firmware/Tenda/RX9pro/US_RX9ProV1.0in_V22.03.02.20_multi_TDE01.bin",
+          "sha256": "db6b8d8adf45f75899abb50b5f1576e778614e1e8b485d884aeedcd74f841a2f",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "2568a987aeb2bc93dc698b734095506cac1d49723f7c0728033727736e29ba79",
+          "functions": [
+            "sub_41565C"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Tenda/TX9Pro",
+      "firmware_images": [
+        {
+          "file": "firmware/Tenda/TX9Pro/US_TX9ProV1.0in_V22.03.02.10_multi_TDE01.bin",
+          "sha256": "b5eecaf9dce48f6054f94812cb7e01cee3f79c60e82680e0a8349688977f0db1",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "50783378b313b5aa4a5887f7e77da7388b2448d3d6b42f56ffdf8b69937eff3b",
+          "functions": [
+            "sub_4150CC"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Tenda/W6",
+      "firmware_images": [
+        {
+          "file": "firmware/Tenda/W6/US_W6V1.0BR_V1.0.0.9(4122)_EN_TDE01.bin",
+          "sha256": "1d7ebfc799fde572dc04e3c411f8ff198c60c58ac164b200422d5efddf3765f5",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "e0383299adfb25f7e14beaa89bcbf98333bf19469de489df24d00d6ad4cb7e47",
+          "functions": [
+            "websGetVar"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Tenda/Wh450",
+      "firmware_images": [
+        {
+          "file": "firmware/Tenda/Wh450/14C33C.squashfs",
+          "sha256": "de7ddf183b9b0cea6a96f1af3ab5a6bda5a171c1b13890ddc8aa84264f07ffc9",
+          "binary_match_verified": false,
+          "image_type": "filesystem_only",
+          "note": "SquashFS 3.0 at offset 0; original firmware image still needed."
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "httpd",
+          "sha256": "d520811eb92d8119ce2e28b3e17cea1d5211418560549a213db8f74fa786c659",
+          "functions": [
+            "websGetVar"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Totolink/EX1200",
+      "firmware_images": [
+        {
+          "file": "firmware/Totolink/EX1200/TOTOLINK_C8350E-1C_EX1200L_WX028_MT7628DA_SPI_8M64M_V9.3.5u.6146_B20201023_ALL.web",
+          "sha256": "2e419d5bc889d2cdb991856a703dd6b5347bac6ac109b178ede977cc4df7c119",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "cstecgi.cgi",
+          "sha256": "bef5158adc09dae58cf045e3b6f521aaca5c5c29257b5adab7c26e3774365b85",
+          "functions": [
+            "websGetVar"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Totolink/EX1800",
+      "firmware_images": [
+        {
+          "file": "firmware/Totolink/EX1800/TOTOLINK_C8341E_EX1800T_WX032_MT7621MT7915_SPI_16M128M_V9.1.0cu.2112_B20220316_ALL_Easymesh.web",
+          "sha256": "f32c0a733de7682a8280d4941f1ad1c7ee05e2411e9babfd160b28bbb2f5001a",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "cstecgi.cgi",
+          "sha256": "92eb2ce7e7631e3f38a2f508171e703422b35e6d646e2878da3ebf9d7fd606df",
+          "functions": [
+            "websGetVar"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Totolink/LR1200",
+      "firmware_images": [
+        {
+          "file": "firmware/Totolink/LR1200/TOTOLINK_C834SR_LR1200GB_IP04480_MT7621A_SPI_8M128M_V9.1.0u.6619_B20230130_ALL.web",
+          "sha256": "e8f378a7fac77c92b7f3e0ce1f296ea7b33d6c34bdc694b96a6664aa6033fa66",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "cstecgi.cgi",
+          "sha256": "c75268a380e84296fe658858f47092664477a6b46a62f3b58885283f8b02025a",
+          "functions": [
+            "websGetVar"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Totolink/LR350",
+      "firmware_images": [
+        {
+          "file": "firmware/Totolink/LR350/TOTOLINK_C835BR_LR350_IP04481_MT7628NN_SPI_8M32M_V9.3.5u.6710_B20250612_ALL.web",
+          "sha256": "01aa5f96155c705e8a5bcab3f882020b32e1becd97911f2f286c77303d43fafb",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "cstecgi.cgi",
+          "sha256": "3b396be9677a06ad1b5463a650997fd82dca16aa70989aaf6def9eeb2e863c8b",
+          "functions": [
+            "websGetVar"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Totolink/N200",
+      "firmware_images": [
+        {
+          "file": "firmware/Totolink/N200/TOTOLINK_C8352R_N200RE_IP04424_MT7628NN_SPI_4M32M_V9.3.5u.6139_B20201216_ALL.web",
+          "sha256": "8f9519b978bbbe4754197aa0f853cbdd547737e07ed3c68b2c38a359ae3a2849",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "cstecgi.cgi",
+          "sha256": "2d78a616a4504150fbda079b6455941440ab66eb72cb4e1ee6c94e05628eb74b",
+          "functions": [
+            "websGetVar"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Totolink/NR1800",
+      "firmware_images": [
+        {
+          "file": "firmware/Totolink/NR1800/TOTOLINK_C834FR-1C_NR1800X_IP04469_MT7621A_SPI_16M256M_V9.1.0u.6681_B20230703_ALL.web",
+          "sha256": "8d6f80fe7f7bd3bd0dc996c6f97090e0a96367e87adbed9e568d469e1321b12c",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "cstecgi.cgi",
+          "sha256": "56444ba3cd4c3c88a9de989b321f701ffb24f9a90e89dab843fd51d614029477",
+          "functions": [
+            "websGetVar"
+          ]
+        }
+      ]
+    },
+    {
+      "device": "Zyxel/NBG-419N",
+      "firmware_images": [
+        {
+          "file": "firmware/Zyxel/NBG-419N/NBG_419N.bin",
+          "sha256": "69132bac510dcf2acb9d809727be0189f9648ff4b45c526d3c3cf9e3b6d71877",
+          "binary_match_verified": false,
+          "image_type": "firmware_candidate"
+        }
+      ],
+      "binaries": [
+        {
+          "binary": "goahead",
+          "sha256": "b1016c5c3d17f3e2b3361dfaa1b5703daa3cc0acad9f6300de3b86c868fe0380",
+          "functions": [
+            "websGetVar"
+          ]
+        }
+      ]
+    }
+  ]
+}

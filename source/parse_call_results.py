@@ -1,0 +1,137 @@
+# coarse-grained screening
+import json
+import os
+import sys
+from config import settings
+# count threshold
+CALLED_THRESHOLD =3
+LIBC_FUNCTION = ["malloc", "calloc", "zalloc", "realloc", "xmalloc", "xcalloc", "xzalloc", "xrealloc","xstrdup", "strdup", "read", "fread", "free", "gets", "getc", "fgets", "fgetc", "close", "fstat", "stat", "ioctl", "lseek", "seek", "open", "write", "printf", "sprintf", "fprintf", "vsnprintf", "vsprintf", "snprintf", "vfprintf","asprintf","vasprintf","sscanf", "vsscanf","fflush","fwrite","putchar","memcpy","memset","memchr","memcmp","strnlen","strerror_r","strdup","strerror","perror","fatal", "error","strtoul", "getenv", "setenv","strcpy","strncpy","strlcpy","strlcat","stristr","stricmp","strnicmp","strstr","getopt", "getopt_long","exit","opendir","readdir","closedir","mkdir","mkpath","fcntl","_exit","_Exit","fclose","fopen","strchr","strchrnul","strcspn","strncmp","strrchr","strspn","kill","strlen","strncmp","strcmp","hsearch_r","hcreate","hsearch","hdestroy","hcreate_r","hdestroy_r","puts","fputs","signal","chdir","getcwd","chroot","mkdir","strcasecmp","strncasecmp","strcasestr","strsep","strtok","strpbrk","syslog","openlog","unlink","assert","strtok_r","strcat","cprintf","sleep","usleep","chmod","pthread_mutex_lock","pthread_mutex_init","popen","inet_addr","inet_aton","inet_ntoa","inet_pton","inet_ntop","qsort","atoi","remove","system","socket","bind","listen","connect","accept","send","access","symlink","readlink","sigaction","strncat","umount","mount","time","strftime", "fscanf","sendto","dlopen", "dlsym","dladdr","dlinfo","dlclose","warn","warnx","err","errx","pthread_create","pthread_sigmask","bcopy","__assert","strtol","htons","alarm","fork","fputc","recvfrom","die","pthread_exit","getopt_long_only","ftok","substr","shutdown","pow","semop","strstri","rename","fwrite","strspn","write"]
+
+def parse_json(call_result_json):
+    final_possible_functions = {}
+    export_temp_functions = {}
+    with open(call_result_json, "r") as f:
+        content = json.load(f)
+    for binary_path in content:
+ 
+        if ".so" in binary_path.lower() and  ("libc-" in binary_path.lower() or "libc.so" in binary_path.lower() or "pthread" in binary_path.lower() or "stdc" in binary_path.lower() or "gcc" in binary_path.lower() or "crypt" in binary_path.lower() or "sqlite" in binary_path.lower() or "ssl" in binary_path.lower() or "libcurl" in binary_path.lower() or "libxml" in binary_path.lower() or "smb" in binary_path.lower() or "libavcodec" in binary_path.lower() or "libavformat" in binary_path.lower() or "libz" in binary_path.lower() or "libevent" in binary_path.lower() or "libm" in binary_path.lower() or "libnsl" in binary_path.lower() or "ld-linux" in binary_path.lower() or "libstrongswan" in binary_path.lower() or "libxtables" in binary_path.lower() or "libexif" in binary_path.lower() or "libvorbis" in binary_path.lower() or "libpcre" in binary_path.lower() or "libupnp" in binary_path.lower() or "libexpat" in binary_path.lower() or "libid3tag" in binary_path.lower() or "libpam" in binary_path.lower() or "libdb" in binary_path.lower() or "liblzo2" in binary_path.lower() or "libjpeg" in binary_path.lower() or "libavahi" in binary_path.lower() or "libeap" in binary_path.lower() or "libneon" in binary_path.lower() or "libiconv" in binary_path.lower() or "flac" in binary_path.lower() or "libogg" in binary_path.lower() or "pctrl" in binary_path.lower() or "stlport" in binary_path.lower() or "libbcm_flashutil" in binary_path.lower() or "libnfnetlink" in binary_path.lower() or "libdl." in binary_path.lower() or "libqrencode" in binary_path.lower() or "libpng" in binary_path.lower() or "libjq." in binary_path.lower() or "libev." in binary_path.lower() or "libonig." in binary_path.lower() or "libebtc" in binary_path.lower() or "libws." in binary_path.lower() or "libdisk." in binary_path.lower() or "libresolv" in binary_path.lower() or "ncurses" in binary_path.lower() or "libical." in binary_path.lower() or "libext2fs" in binary_path.lower() or "libblobmsg_json" in binary_path.lower() or "libpanel" in binary_path.lower() or "libreadline" in binary_path.lower() or "libgobject" in binary_path.lower() or "libavutil" in binary_path.lower() or "libbcm" in binary_path.lower() or "libbluetooth" in binary_path.lower() or "libicalvcal" in binary_path.lower() or "libgio." in binary_path.lower() or "libglib." in binary_path.lower() or "libxt_" in binary_path.lower() or "libbcmmcast" in binary_path.lower() or "libfreeradius-" in binary_path.lower() or "ld-" in binary_path.lower() or "libthread_db" in binary_path.lower() or "libbfd-" in binary_path.lower() or "libgmp." in binary_path.lower() or "libldap" in binary_path.lower() or "liblber" in binary_path.lower() or "libusb" in binary_path.lower() or "libnetsnmpmibs" in binary_path.lower() or "libnetsnmpagent" in binary_path.lower() or "libnetsnmp" in binary_path.lower() or "libnetconf" in binary_path.lower() or "libnl" in binary_path.lower() or "libsafec" in binary_path.lower() or "libwebsockets" in binary_path.lower() or "libgio-" in binary_path.lower() or "libcli." in binary_path.lower() or "libopcodes" in binary_path.lower() or "libkrb5." in binary_path.lower() or "libpython" in binary_path.lower() or "libsmartcols." in binary_path.lower() or "libkadm5clnt_mit" in binary_path.lower() or "libkadm5srv_mit" in binary_path.lower() or "libevtlog" in binary_path.lower() or "libbz2" in binary_path.lower() or "libcmt" in binary_path.lower() or "libldns" in binary_path.lower() or "libsodium" in binary_path.lower() or "liblua" in binary_path.lower() or "libpcap" in binary_path.lower() or "libblkid" in binary_path.lower() or "libglib" in binary_path.lower() or "libperl" in binary_path.lower() or "libsudo_util" in binary_path.lower() or "sudoers" in binary_path.lower() or "libubox" in binary_path.lower() or "libiproute2" in binary_path.lower() or "libasound" in binary_path.lower() or "libfreetype" in binary_path.lower() or "libexosip2" in binary_path.lower() or "libpci" in binary_path.lower() or "libnss_nisplus" in binary_path.lower() or "libselinux" in binary_path.lower() or "libproc." in binary_path.lower() or "libsepol" in binary_path.lower() or "libip6t_frag" in binary_path.lower() or "libfuse" in binary_path.lower() or "libosip2" in binary_path.lower() or "libidn." in binary_path.lower() or "libacl." in binary_path.lower() or "libaudit" in binary_path.lower() or "libtinfo" in binary_path.lower() or "libdevmapper." in binary_path.lower() or "libauparse." in binary_path.lower() or "libacl." in binary_path.lower() or "libfl-" in binary_path.lower() or "libixml." in binary_path.lower() or "libthreadutil" in binary_path.lower() or "libintl-" in binary_path.lower() or "libgmp-" in binary_path.lower() or "libdcerpc-binding" in binary_path.lower() or "libtalloc." in binary_path.lower() or "libnetfilter_queue" in binary_path.lower() or "libcares." in binary_path.lower() or "libejdb." in binary_path.lower() or "libos." in binary_path.lower() or "libcms_core." in binary_path.lower() or "libcms_cli." in binary_path.lower() or "libcms_util." in binary_path.lower() or "libcms_boardctl." in binary_path.lower() or "libcms_dal." in binary_path.lower() or "libcms_core." in binary_path.lower() or "libcms_cli." in binary_path.lower() or "libbigballofmud." in binary_path.lower() or "libext2fs." in binary_path.lower() or "libusb-" in binary_path.lower() or "/lib/xtables/" in binary_path.lower()):
+            continue
+
+        if ".so" in binary_path.lower() and ("libwbclient" in binary_path.lower() or "libndr." in binary_path.lower() or "libldb." in binary_path.lower() or "libtdb." in binary_path.lower() or "libswscale" in binary_path.lower() or "libhiredis" in binary_path.lower() or "libuclibc" in binary_path.lower() or "libplist." in binary_path.lower() or "libunistring." in binary_path.lower() or "libyaml." in binary_path.lower() or "libantlr3c" in binary_path.lower() or "libelf-" in binary_path.lower() or "libedit." in binary_path.lower() or "libscapi." in binary_path.lower() or "libiperf." in binary_path.lower() or "libubus." in binary_path.lower() or "libnettle." in binary_path.lower() or "libhogweed." in binary_path.lower() or "libbpf." in binary_path.lower() or "libatalk." in binary_path.lower() or "/ld.so" in binary_path.lower() or "liblz4." in binary_path.lower() or "libgssapi_krb5." in binary_path.lower()):
+            continue
+        if "openssl" in binary_path.lower() or "racoon" in binary_path.lower() or "racoonctl" in binary_path.lower() or "ipsec" in binary_path.lower() or "setkey" in binary_path.lower() or "iptables" in binary_path.lower() or "busybox" in binary_path.lower() or "sqlite" in binary_path.lower() or "flash_erase" in binary_path.lower() or "wget" in binary_path.lower() or "openvpn" in binary_path.lower() or "smbd" in binary_path.lower() or "dnsmasq" in binary_path.lower() or "curl" in binary_path.lower() or "odhcp6c" in binary_path.lower()or "wpa_cli" in binary_path.lower()or "hostapd" in binary_path.lower() or "udhcpd" in binary_path.lower()or "inadyn" in binary_path.lower()or "dropbear" in binary_path.lower()or "zebra" in binary_path.lower() or "quagga" in binary_path.lower() or "ebtables" in binary_path.lower() or "iptables" in binary_path.lower() or "ppp" in binary_path.lower() or "nmbd" in binary_path.lower() or "netstat" in binary_path.lower() or "ripd" in binary_path.lower() or "acme" in binary_path.lower() or "booster" in binary_path.lower() or "comgt"in binary_path.lower() or "ntfs" in binary_path.lower() or "mtd" in binary_path.lower() or "uqmi" in binary_path.lower() or "qmi" in binary_path.lower() or "l2tp" in binary_path.lower() or "daapd" in binary_path.lower() or "lldpd" in binary_path.lower() or "lldpcli" in binary_path.lower() or "lldpctl" in binary_path.lower()  or "/wl" in binary_path.lower() or "/tc" in binary_path.lower() or "acsd" in binary_path.lower() or "charon" in binary_path.lower() or "pluto" in binary_path.lower() or "swanctl" in binary_path.lower() or "conntrack" in binary_path.lower() or "udev" in binary_path.lower() or "dropbear" in binary_path.lower() or "tcpdump" in binary_path.lower() or "pptp" in binary_path.lower() or "dhcrelay" in binary_path.lower() or "pppd" in binary_path.lower() or "ip6tables" in binary_path.lower() or "tr069" in binary_path.lower() or "udpxy" in binary_path.lower() or "dhcp6" in binary_path.lower() or "ez-ipupdate" in binary_path.lower() or "wpa_supplicant" in binary_path.lower() or "lsof" in binary_path.lower() or "lpr" in binary_path.lower() or "/lpd" in binary_path.lower() or "afpd" in binary_path.lower() or "udpxy" in binary_path.lower() or "fsck" in binary_path.lower() or "vsftpd" in binary_path.lower() or "uniconv" in binary_path.lower() or "sdparm" in binary_path.lower() or "/sbd" in binary_path.lower() or "/dbd" in binary_path.lower() or "samba" in binary_path.lower() or "avahi-daemon" in binary_path.lower() or "igmpproxy" in binary_path.lower() or "dropbox" in binary_path.lower() or "minidlna" in binary_path.lower() or "test" in binary_path.lower() or "stubby" in binary_path.lower() or "ipset" in binary_path.lower() or "jitterentropy" in binary_path.lower() or binary_path.endswith("/ip") or "nanddump" in binary_path.lower() or "traceroute" in binary_path.lower() or "ookla" in binary_path.lower() or "iperf3" in binary_path.lower() or "flashcp" in binary_path.lower() or "ubinfo" in binary_path.lower() or "brctl" in binary_path.lower() or "ntpclient" in binary_path.lower() or "radvd" in binary_path.lower() or "dhcrelay" in binary_path.lower() or "hotplug" in binary_path.lower() or "ethtool" in binary_path.lower() or "rdisc6" in binary_path.lower()or "phddns" in binary_path.lower() or "chilli" in binary_path.lower() or "mke2fs" in binary_path.lower() or "/jq" in binary_path.lower() or "/mmc" in binary_path.lower() or "ubimkvol" in binary_path.lower() or "ubirmvol" in binary_path.lower() or "ubirename" in binary_path.lower() or "ubiattach" in binary_path.lower() or "ubidetach" in binary_path.lower() or "snooper" in binary_path.lower() or "dbus-daemon" in binary_path.lower() or "tdts_rule_agent" in binary_path.lower() or "eventd" in binary_path.lower() or "mkfatfs" in binary_path.lower() or "wsdd2" in binary_path.lower() or "socat" in binary_path.lower() or "mkfs.ubifs" in binary_path.lower() or "usb_modeswitch" in binary_path.lower() or "idevicedebugserverproxy" in binary_path.lower() or "hcidump" in binary_path.lower() or "idevice" in binary_path.lower() or "hcitool" in binary_path.lower() or "bluetoothd" in binary_path.lower() or "iproxy" in binary_path.lower() or "l2ping" in binary_path.lower() or "btmgmt" in binary_path.lower() or "plistutil" in binary_path.lower() or "usbmuxd" in binary_path.lower() or "bccmd" in binary_path.lower() or "sdptool" in binary_path.lower() or "bluetoothctl" in binary_path.lower() or "vlanctl" in binary_path.lower() or "nandwrite" in binary_path.lower() or "newfs_hfs" in binary_path.lower() or "rmmod" in binary_path.lower() or "modprobe" in binary_path.lower() or "syslogd" in binary_path.lower() or "snmpwalk" in binary_path.lower() or "snmptrap" in binary_path.lower() or "named" in binary_path.lower() or "depmod" in binary_path.lower() or "snmpd" in binary_path.lower() or "dhclient" in binary_path.lower() or "mdnsd" in binary_path.lower() or "dhcpd" in binary_path.lower() or "ldapsearch" in binary_path.lower() or "mkfs.jffs2" in binary_path.lower() or "webBoot" in binary_path.lower() or "stunnel" in binary_path.lower() or "confd" in binary_path.lower() or "mail" in binary_path.lower() or "nameif" in binary_path.lower() or "/arp" in binary_path.lower() or "rtmon" in binary_path.lower() or "msmtp" in binary_path.lower() or "/sar" in binary_path.lower() or "nginx" in binary_path.lower() or "syslog-ng" in binary_path.lower() or "/tftpd" in binary_path.lower() or "/cron" in binary_path.lower() or "/zic" in binary_path.lower() or "bonjour" in binary_path.lower() or "netifd" in binary_path.lower() or "procd" in binary_path.lower() or "ldconfig" in binary_path.lower() or "fdisk" in binary_path.lower() or "uwsgi" in binary_path.lower() or "unix_chkpwd" in binary_path.lower() or "kdb5_util" in binary_path.lower() or "smcroute" in binary_path.lower() or "mkswap" in binary_path.lower() or "ubirsvol" in binary_path.lower() or "ubiformat" in binary_path.lower() or "mcproxy" in binary_path.lower() or "pam_tally2" in binary_path.lower() or "ubiupdatevol" in binary_path.lower() or "plainrsa-gen" in binary_path.lower() or "pam_tally" in binary_path.lower() or "blkid" in binary_path.lower() or "hping3" in binary_path.lower() or "/slapd" in binary_path.lower() or "/visudo" in binary_path.lower() or "s/trace" in binary_path.lower() or "mcsender" in binary_path.lower() or "ld.bfd" in binary_path.lower() or "/casa" in binary_path.lower() or "/h/ostip" in binary_path.lower() or "/ktutil" in binary_path.lower() or "/mutt" in binary_path.lower() or "objcopy" in binary_path.lower() or "/iperf" in binary_path.lower() or "/nm" in binary_path.lower() or "/whereis" in binary_path.lower() or "/ar" in binary_path.lower() or "smidump" in binary_path.lower() or "/ranlib" in binary_path.lower() or "/addr2line" in binary_path.lower() or "/cmm" in binary_path.lower() or "/readelf" in binary_path.lower() or "/sadf" in binary_path.lower() or "/vtysh" in binary_path.lower() or "/strip" in binary_path.lower() or "mpstat" in binary_path.lower() or binary_path.endswith("/as") or "/objdump" in binary_path.lower() or "/lib/python2.7" in binary_path.lower() or "/sadc" in binary_path.lower() or "/opkg" in binary_path.lower() or "/strings" in binary_path.lower() or "pam_krb5" in binary_path.lower() or "utelnetd" in binary_path.lower() or "/mDNSResponderPosix" in binary_path.lower() :
+            continue
+        if  "iwconfig" in binary_path.lower() or "/logic" in binary_path.lower() or "/nbns" in binary_path.lower() or "strace" in binary_path.lower() or "mkfs.ext2" in binary_path.lower() or "tune2fs" in binary_path.lower() or "mkdosfs" in binary_path.lower() or "/ftpd" in binary_path.lower() or "telnetd" in binary_path.lower() or "/lib/lua/" in binary_path.lower() or "setpci" in binary_path.lower() or "/lspci" in binary_path.lower() or "iwlist" in binary_path.lower() or "/ping" in binary_path.lower() or "/msntp" in binary_path.lower() or "/wput" in binary_path.lower() or "gdbserver" in binary_path.lower() or binary_path.endswith("/dcp") or "shutdown" in binary_path.lower() or "agetty" in binary_path.lower() or "iscsid" in binary_path.lower() or "/init" in binary_path.lower() or "xinetd" in binary_path.lower() or "onvifserver" in binary_path.lower() or "iscsiadm" in binary_path.lower() or "lldptool" in binary_path.lower() or binary_path.endswith("/ftp") or binary_path.endswith("/lum") or "dircolors" in binary_path.lower() or "/lldpad" in binary_path.lower() or "/wavplay" in binary_path.lower() or "xtables-multi" in binary_path.lower() or "/rtspd" in binary_path.lower() or "/sysconf" in binary_path.lower() or binary_path.endswith("/fwd") or binary_path.endswith("/dnrd") or binary_path.endswith("/noip2") or binary_path.endswith("/ncc") or binary_path.endswith("/ds") or binary_path.endswith("/mlabel") or binary_path.endswith("/disktype") or binary_path.endswith("/routed") or "mDNSResponder" in binary_path.lower() or "mod_status" in binary_path.lower() or "/unzip" in binary_path.lower() or "/bftpd" in binary_path.lower() or binary_path.endswith("/zip") or "/zipsplit" in binary_path.lower() or binary_path.endswith("/pot") or "zipcloak" in binary_path.lower() or "zipnote" in binary_path.lower() or "/bzip2" in binary_path.lower() or "/vmstat" in binary_path.lower() :
+            continue
+        if "/hdparm" in binary_path.lower() or "/picocom" in binary_path.lower() or "mkfs.xfs" in binary_path.lower() or "/xfs_growfs" in binary_path.lower() or "/xfs_repair" in binary_path.lower() or "/xfs_db" in binary_path.lower() or "/aperture" in binary_path.lower() or "/parted" in binary_path.lower() or "/p0f" in binary_path.lower() or "/ssmtp" in binary_path.lower() or binary_path.endswith("/bc") or binary_path.endswith("/lbd") or binary_path.endswith("/ssdk_sh") or "proftpd" in binary_path.lower() or "/vol_id" in binary_path.lower() or binary_path.endswith("/atd") or "avahi-autoipd" in binary_path.lower() or "logrotate" in binary_path.lower() or "transmission-daemon" in binary_path.lower() or binary_path.endswith("/at") or "redis-cli" in binary_path.lower() or "transmission-remote" in binary_path.lower() or binary_path.endswith("/tar") or "amulecmd" in binary_path.lower() or "/amuled" in binary_path.lower() or "/redis-server" in binary_path.lower() or "/netdrive" in binary_path.lower() or binary_path.endswith("/iw") or "/netctrl" in binary_path.lower() or "/lzma" in binary_path.lower() or binary_path.endswith("/fw3") or binary_path.endswith("/bridge") or "/openlldp" in binary_path.lower() or "/halt" in binary_path.lower() or binary_path.endswith("/watchdog") or "/mosquitto" in binary_path.lower() or binary_path.endswith("/lsusb") or binary_path.endswith("/uci2dat") or "partprobe" in binary_path.lower() or "mkfs.fat" in binary_path.lower() or "/cwmpClient" in binary_path.lower() or binary_path.endswith("/rpcd") or binary_path.endswith("/ubusd") or binary_path.endswith("/iwinfo") or "/endpoint" in binary_path.lower() or binary_path.endswith("/mycli") or "/tftp-hpa" in binary_path.lower() or "/usr/luajit/" in binary_path.lower() or "/uptime" in binary_path.lower() or "/ushare" in binary_path.lower() or "smbcontrol" in binary_path.lower() or "smbpasswd" in binary_path.lower() or "/gctwimax" in binary_path.lower() or "/madwimax" in binary_path.lower():
+            continue
+        if "/sysstate" in binary_path.lower() or binary_path.endswith("/pki") or "/mkfs.ubifs" in binary_path.lower() or "/mcpd" in binary_path.lower() or "/hspotap" in binary_path.lower() or "/vlanctl" in binary_path.lower() or "/ceventc" in binary_path.lower() or "/ubirsvol" in binary_path.lower() or "/ubiformat" in binary_path.lower() or "/ubiupdatevol" in binary_path.lower() or "/ubiblock" in binary_path.lower() or "/ceventd" in binary_path.lower() or "/nandwrite" in binary_path.lower() or binary_path.endswith("/eapd") or binary_path.endswith("/bpmctl") or binary_path.endswith("/email") or binary_path.endswith("/socat") or binary_path.endswith("/bsd") or binary_path.endswith("/dhd") or binary_path.endswith("/dhdctl") or binary_path.endswith("/route") or binary_path.endswith("/linuxrc") or binary_path.endswith("/ecmh") or binary_path.endswith("/mwcli") or binary_path.endswith("/top") or "/mdnsresponder" in binary_path.lower() or "/wps_pbcd" in binary_path.lower():
+            continue
+        # print(binary_path)
+        binary_result = content[binary_path]
+        # print(binary_result)
+        defined_funcs = binary_result["define_result"]
+        callsite_funcs = binary_result["callsite_result"]
+        export_funcs = binary_result["exported_functions"]
+        import_funcs = binary_result["import_functions"]
+        thunk_maps = binary_result["thunk_map"]
+        for func in defined_funcs:
+            # print(func)
+            if func in LIBC_FUNCTION:
+                continue
+            if func.strip(".") in LIBC_FUNCTION:
+                continue
+            # name with log or err or fatal
+            if "log" in func.lower() or "err" in func.lower() or "fatal" in func.lower() or "print" in func.lower() or "debug" in func.lower() or "dbg" in func.lower() or "time" in func.lower() or "system" in func.lower() or "lock" in func.lower() or "set" in func.lower() or "open" in func.lower() or "close" in func.lower() or "assert" in func.lower() or "alloc" in func.lower() or "free" in func.lower():
+                continue
+            # THUNK function
+            if func not in callsite_funcs and func in thunk_maps and thunk_maps[func] in callsite_funcs:
+                # print(f"ffffff {func}")
+                if callsite_funcs[thunk_maps[func]]["count"] > CALLED_THRESHOLD:
+                    if binary_path not in final_possible_functions:
+                        final_possible_functions[binary_path] = {}
+                    final_possible_functions[binary_path][thunk_maps[func]] = {"paramlen":defined_funcs[func], "call_count": callsite_funcs[thunk_maps[func]]["count"], "is_export": False}
+                    
+            if func not in export_funcs:
+                # binary inspect
+                if func in callsite_funcs:
+                    if callsite_funcs[func]["count"] > CALLED_THRESHOLD:
+                        if binary_path not in final_possible_functions:
+                            final_possible_functions[binary_path] = {}
+                        final_possible_functions[binary_path][func] = {"paramlen":defined_funcs[func], "call_count": callsite_funcs[func]["count"], "is_export": False}
+                    
+            else:
+                # export function
+                callcount = 0
+                if func in callsite_funcs:
+                    callcount = callsite_funcs[func]["count"]
+                if func in export_temp_functions:
+                    # 同名函数，取callcount多的
+                    if export_temp_functions[func]["call_count"] >= callcount:
+                        continue
+                export_temp_functions[func] = {"paramlen":defined_funcs[func], "binary_path": binary_path, "call_count": callcount}
+
+        # IMPORTED library functions called frequently (cJSON_GetObjectItem, mxmlFindElement,
+        # hsearch_r, json_object_object_get, ...) have NO body here (defined in a .so), so they
+        # never appear in defined_funcs and were silently dropped — yet they ARE key-value
+        # getters. Surface them as candidates (same libc/name filter) so the classifier + the
+        # cross-binary lib resolver can judge them. Recall-first: the classifier prunes non-getters.
+        for func in import_funcs:
+            if func in LIBC_FUNCTION or func.strip(".") in LIBC_FUNCTION:
+                continue
+            low = func.lower()
+            if ("log" in low or "err" in low or "fatal" in low or "print" in low or "debug" in low
+                    or "dbg" in low or "time" in low or "system" in low or "lock" in low or "set" in low
+                    or "open" in low or "close" in low or "assert" in low or "alloc" in low or "free" in low):
+                continue
+            # call count: import called directly, OR via a PLT thunk that maps to it
+            cnt = callsite_funcs.get(func, {}).get("count", 0)
+            if cnt == 0:
+                for tk, tv in thunk_maps.items():
+                    if tv == func and tk in callsite_funcs:
+                        cnt = max(cnt, callsite_funcs[tk].get("count", 0))
+            if cnt > CALLED_THRESHOLD:
+                final_possible_functions.setdefault(binary_path, {}).setdefault(func, {
+                    "paramlen": -1, "call_count": cnt, "is_export": False, "is_import": True})
+
+    # process export functions
+    # print(export_temp_functions["cJSON_GetObjectItem"])
+    for binary_path in content:
+        # print(binary_path)
+        binary_result = content[binary_path]
+        import_funcs = binary_result["import_functions"]
+        callsite_funcs = binary_result["callsite_result"]
+        for func in export_temp_functions:
+            # in import table and called 
+            if func in import_funcs and func in callsite_funcs:
+                export_temp_functions[func]["call_count"] += callsite_funcs[func]["count"]
+                if "export_binary" not in export_temp_functions[func]:
+                    export_temp_functions[func]["export_binary"] = []
+                export_temp_functions[func]["export_binary"].append(binary_path)
+                # print(f"adding others {func} {binary_path} ")
+                # print(export_temp_functions[func]["export_binary"])
+    # print(export_temp_functions)          
+    # process export functions
+    for func in export_temp_functions:
+        # print(export_temp_functions[func])
+        if export_temp_functions[func]["call_count"] > CALLED_THRESHOLD:
+            binary_path = export_temp_functions[func]["binary_path"]
+            if binary_path not in final_possible_functions:
+                final_possible_functions[binary_path] = {}
+            if "export_binary" not in export_temp_functions[func]:
+                final_possible_functions[binary_path][func] = {"paramlen":export_temp_functions[func]["paramlen"], "call_count": export_temp_functions[func]["call_count"], "is_export": False}
+            else:
+                final_possible_functions[binary_path][func] = {"paramlen":export_temp_functions[func]["paramlen"], "call_count": export_temp_functions[func]["call_count"], "is_export": True, "export_binary":export_temp_functions[func]["export_binary"]}
+
+    # print(f"final result is {final_possible_functions}")    
+    return final_possible_functions  
+        
+
+if __name__ == "__main__":
+    devicename = sys.argv[1]
+    call_result_json = os.path.join(settings.result_path, devicename, "final_call_output.json")
+    final_possible_json = os.path.join(settings.result_path, devicename, "final_possible.json")
+    final_possible_functions = parse_json(call_result_json)
+    with open(final_possible_json, "w") as f:
+        json.dump(final_possible_functions, f, indent=4, ensure_ascii=False)
+    
